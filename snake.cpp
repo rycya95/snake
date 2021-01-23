@@ -1,6 +1,7 @@
 #include <iostream>
 #include <windows.h>
 #include <conio.h>
+#include <ctime>
 using namespace std;
 
 bool gameover;
@@ -16,7 +17,9 @@ void setup(){
     dir=STOP;
     x=width/2;
     y=height/2;
+    srand(time(NULL));
     fruitX=rand()%width;
+    srand(time(NULL));
     fruitY=rand()%height;
     score=0;
 }
@@ -96,7 +99,9 @@ void logic(){
     if(x>width||x<0) gameover=true;
     if(y>height||y<0) gameover=true;
     if(x==fruitX&&y==fruitY){
+        srand(time(NULL));
         fruitX=rand()%width;
+        srand(time(NULL));
         fruitY=rand()%height;
         score+=10;
         n-=10;
